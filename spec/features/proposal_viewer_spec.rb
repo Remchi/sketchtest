@@ -19,5 +19,10 @@ feature 'Proposal Viewer page' do
     expect(page).to have_content('http://www.apple.com')
   end
 
+  scenario "renders several proposal sections" do
+    visit('/proposal_viewer/show/1')
+    expect(page.all('#proposal-content > div').length).to eq(4)
+  end
+
 
 end
