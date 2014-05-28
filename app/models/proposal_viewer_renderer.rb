@@ -11,6 +11,9 @@ class ProposalViewerRenderer
     html.gsub!('{client_company}', proposal.client.company)
     html.gsub!('{client_website}', proposal.client.website)
 
+    html.gsub!('style/', '/proposal-template/style/')
+    html.gsub!('images/', '/proposal-template/images/')
+
     html = Nokogiri::HTML(html)
 
     proposal_content = html.at_css('#proposal-content')
@@ -23,6 +26,7 @@ class ProposalViewerRenderer
       node.gsub!('{section_content}', section.description)
       proposal_content.add_child(node)
     end
+
 
     html
   end
