@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :proposal do
     name "redesign"
     user_name "Joe"
-    send_date DateTime.new(2014, 01, 01)
+    send_date "2014-01-01"
 
     client
 
