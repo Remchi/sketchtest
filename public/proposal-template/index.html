@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Professional Template</title>
+<link href="style/style.css" rel="stylesheet" type="text/css" media="all" />
+
+</head>
+
+<body>
+	
+	<div class="header" style="display:none">
+		<img align="left" alt="" border="0" height="60px" src="images/logo-footer.png" />
+	</div>
+	
+	<div id="cover-content" class="cover-background-main">
+		
+		<div class="content-upper">	
+				
+			<div class="cover-inset">
+	
+					<h1 id="client_name">{client_name}</h1>
+			</div>
+
+			<h2 id="project_name">{proposal_name}</h2>
+		
+			<div class="contact-info">
+				<table>
+					<tr>
+						<td id="sent_date">{proposal_send_date}</td>
+						<td><em>Prepared by:</em> <span id="my_name">{proposal_user_name}</span></td>
+					</tr>
+					<tr>
+						<td class="vertical-divider"></td>
+						<td><em>Prepared for:</em> <span id="client_contact_name">{client_name}</span></td>
+					</tr>
+				</table>
+			</div>
+		
+		</div>
+	
+	
+		<div id="cover-footer">
+			<div class="footer-top"></div> 
+			<div class="cover-footer-image">
+				<div  id="my_company">
+					
+					<h1 style="margin-bottom:8px">{client_company}</h1>
+					
+					<div>{client_website}</div> 
+				</div>
+					
+			</div>
+		</div>
+	
+	</div>
+	
+	
+	<div id="proposal-content">
+		
+		<!-- Populate and repeat this HTML for each proposal section -->
+		<div id="proposal_section">
+			<h1> {section_header}</h1>
+
+			<div>
+				{section_content} 
+			</div>
+		</div>	
+		<!-- end repeat -->
+		
+	</div>
+	
+</body>
+
+</html>

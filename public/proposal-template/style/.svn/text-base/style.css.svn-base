@@ -1,0 +1,172 @@
+html {
+
+}
+@page:first { 
+	margin: 0in 0in; 
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #2E6E73;
+}
+
+div.header {
+	display:none; /* needed for pdf version */
+	
+	margin:0; padding:0; vertical-align:top;
+}
+	div.header img { margin:0;padding:0; margin-left:10px; margin-right:10px }
+
+@media print {
+	div.header {
+		display:block;
+		position: running(header);
+	}
+}
+
+@page { 
+	margin: 75px 0; 
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	@bottom-left {
+		content: element(header);
+	}
+	@bottom-center {
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size:10px;
+		content: "Page " counter(page) " of " counter(pages);
+	}
+}
+
+
+body {
+	position:relative;
+	background:#FFF; 
+	height:100%; 
+	padding:0; margin:0;
+	color:#333;
+	font: 12px/1.5 "Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1, h2 {
+	font-weight: normal;
+	margin-bottom: 18px; 
+}
+
+table {
+	border-collapse:collapse;
+	width:100%;
+}
+	#fees_container, table.fees_container { border-collapse:collapse; }
+	
+	table th  { padding:4px 8px; background-color:#CCC; text-align: left;}
+	table td, #fees_container table tr td, table.fees_container table tr td { padding:6px; border:1px solid #CCC; }
+	
+	table.no-border td { border:none; }
+
+	table#fees_container td, table.fees_container td  { padding:6px 0 14px 0px; border:none; }
+		
+		table td div.fee_name, table tr.project-totals td, table td.price div {
+			padding:0;
+			font-size:14px;
+			padding:5px 3px;
+			
+		}
+		table td.price div, tr.project-totals td.price { white-space: nowrap; }
+		
+			table tr.project-totals { padding-top:20px; }
+				table tr.project-totals td { padding: 8px 0; font-weight:bold;	}
+				
+		table td div.fee_description {
+			padding-left:6px;
+			padding-right:35px;
+		}
+
+		table td.price {
+			font-size:14px;
+			vertical-align:top;
+			text-align:right;
+		}
+
+
+#cover-content { width:100%; height:980px; position:relative; }	
+	
+	.content-upper { padding-top:0; margin:0 auto; text-align:center; width:818px; height:800px;}
+	
+		.content-upper table {
+			border-collapse:collapse;
+			width:auto;
+		}
+			.content-upper table td {
+				padding:6px;
+			}
+		
+	
+		.cover-inset { background:url(../images/cover-top.png) top center; width:475px; height:471px; margin:0 auto; position:relative }
+		
+			h1#client_name { position:absolute; bottom:30px;right:11px; width:450px; }
+			
+		h2#project_name { margin-top:30px; font-weight:normal }
+		
+.contact-info { text-align:center; margin-top:40px }
+	
+	.contact-info table { margin:0 auto; text-align:left; }
+		
+		.contact-info table td { border:none; }
+		
+		#sent_date { border-right:1px solid #999;  }
+		
+		.contact-info table td.vertical-divider { border-right:1px solid #999 }
+		
+		.contact-info table td em { }
+		
+		
+#cover-footer { width:100%; padding:0; margin:0; margin-top:1px; position:absolute; bottom:0; right:0; overflow:hidden; }
+
+	div.footer-top { background:url(../images/cover-bottom-bg.png) bottom left repeat-x; width:100%; height:34px; }
+	
+	div.cover-footer-image { background:#FFF; color:#333; text-align:right; width:100%;  border:1px solid #FFF; border-right:none; border-left:none; border-bottom:3px dashed #CCC;}
+	
+		div#my_company {  margin:20px; margin-right:30px; }
+			div#my_company strong { font-size:14px; }
+
+		div.cover-address-block { font-weight:normal; }
+	
+
+#proposal-content {
+	background:#FFF; padding:40px 100px; margin-top:62px;
+}
+	#proposal-content h1 {
+		font: normal normal 24px "Lucida Grande", "Lucida Sans Unicode", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		margin-bottom: 24px; 
+		margin-top:30px;
+		color:#666;
+	}
+	
+/**
+* Big time needed for print styles
+**/
+@media print  {
+	.break-before {
+		page-break-before:always;
+	}
+	.break-after {
+		page-break-after:always;
+	}
+	#cover-content {  width:100%; height:1052px;}
+	div.cover-footer-image { border:none;}
+
+	div#proposal-content {
+		padding-top:0;
+		padding-bottom:0;
+		margin-top:0;
+		border-top:none;
+		page-break-before:always;
+	}
+	
+	/* Keeps the cover page footer stuck to the bottom of the first page when printing */
+	div#cover-footer {
+		position:absolute; bottom:0; right:0; 
+		overflow:hidden;
+	}
+		/* padding needed to make sure image shows when printing. stupid layout hack. */
+		div.cover-footer-image {
+			padding:2px; padding-right:0;padding-left:0
+		}
+
+}
